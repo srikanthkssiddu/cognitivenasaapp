@@ -8,12 +8,11 @@ import { StatusBar } from 'expo-status-bar';
 const HomeScreen = () => {
   
   const [AsteroidID, setAsteroidID] = useState('');
-  const [randomAsteroidID, setRandomAsteroidID] = useState('');
   const navigation = useNavigation();
   const [txtinput,setTxtinput] = useState('');
-  const getAsteroid = () => {
+  const getAsteroid = (t1,t2) => {
     navigation.navigate('AsteroidDetail', {
-      paramsKey:[AsteroidID,randomAsteroidID]
+      paramsKey:[t1,t2]
     });
   };
 
@@ -23,9 +22,9 @@ const HomeScreen = () => {
     .then((response) => response.json())
     .then((data) => {
         const n = Math.floor(Math.random() * 20);
-        setRandomAsteroidID(data["near_earth_objects"][n]["id"])
+       
         setAsteroidID('')
-        getAsteroid()
+        getAsteroid(null,data["near_earth_objects"][n]["id"])
     })
     .catch(function(error) {
       console.log('There has been a problem with your fetch operation: ' + error.message);
@@ -33,7 +32,11 @@ const HomeScreen = () => {
         throw error;
       });
   };
+
   
+  const nextpage = () =>{
+    getAsteroid(AsteroidID,null)
+  };
 
     
   return (
@@ -58,7 +61,7 @@ const HomeScreen = () => {
                 title="Submit"
                 color='#000080'
                 disabled={AsteroidID===''}
-                onPress={getAsteroid}
+                onPress={nextpage}
         />
         </View>
         <Divider/>
