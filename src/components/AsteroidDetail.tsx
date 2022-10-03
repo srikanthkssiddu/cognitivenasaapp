@@ -6,15 +6,12 @@ import { Card  } from 'react-native-paper';
 
 
 
-
-
-    export default function App1() {
+  export default function App1() {
     
     const [id, setId] = useState([]);
     const [name, setName] = useState([]);
     const [nasa_jpl_url, setNasa_jpl_url] = useState([]);
     const [is_potentially_hazardous_asteroid, setIs_potentially_hazardous_asteroid] = useState([]);
-    
       const route = useRoute();
     
       const fetchAsteroid = () => {
@@ -42,22 +39,19 @@ import { Card  } from 'react-native-paper';
           console.log('There has been a problem with your fetch operation: ' + error.message);
            
             throw error;
-          });
+        });
         
-    };
-    useEffect(() => {
-      fetchAsteroid();
-    }, [])
+      };
+      useEffect(() => {
+        fetchAsteroid();
+      }, [])
     
     
     return (
       
       <SafeAreaView style ={styles.container}>
-        
-        
         <Card style={styles.card}>
         <Card.Content>
-       
         <Text style={styles.title1}>-ID : </Text>
         <Text style={styles.title2}> {id} </Text>
         <Text style={styles.title1}>-Name :</Text>
@@ -71,7 +65,7 @@ import { Card  } from 'react-native-paper';
       </SafeAreaView>
       
     );
-}
+  }
 const styles = StyleSheet.create({
   container: {
     flex:1,
@@ -80,21 +74,21 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     
   },
-    title1: {
-      fontWeight: "500",
-      fontSize: 18,
-      padding:0,
-      color: '#000080'
+  title1: {
+    fontWeight: "500",
+    fontSize: 18,
+    padding:0,
+    color: '#000080'
     },
     title2: {
-      fontWeight: "400",
-      fontSize: 18,
-      padding:10
+    fontWeight: "400",
+    fontSize: 18,
+    padding:10
     },
     card: {
-      paddingLeft:10,
-      width:360,
-      height:320
+    paddingLeft:10,
+    width:360,
+    height:320
     }
     
   });

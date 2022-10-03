@@ -4,40 +4,37 @@ import  Home from './src/components/HomeScreen';
 import App1 from "./src/components/AsteroidDetail"; 
 
 
-  
 const Stack = createNativeStackNavigator();
   
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-       >
+      <Stack.Navigator>
         <Stack.Screen name="Home" component={Home}
-         options={{
-          title: 'NASA App',
-          headerStyle: {
+          options={{
+            title: 'NASA App',
+            headerStyle: {
             backgroundColor: '#191970',
             
-          },
-          headerTintColor: '#dcdcdc',
-          headerTitleStyle: {
+            },
+            headerTintColor: '#dcdcdc',
+            headerTitleStyle: {
             fontWeight: 'bold',
-          },
-        }} />
+            },
+        }}/>
         <Stack.Screen name="AsteroidDetail" component={App1}
-        options={{
-          title: 'Asteroid Details',
-          headerStyle: {
+          options={{
+            title: 'Asteroid Details',
+            headerStyle: {
             backgroundColor: '#191970',
 
-          },
-          headerTintColor: '#dcdcdc',
-          headerTitleStyle: {
+            },
+            headerTintColor: '#dcdcdc',
+            headerTitleStyle: {
             fontWeight: 'bold',
             
-          },
+            },
         }} />
-       
       </Stack.Navigator>
     </NavigationContainer>
   );

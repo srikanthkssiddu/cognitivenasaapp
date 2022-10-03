@@ -22,7 +22,6 @@ const HomeScreen = () => {
     .then((response) => response.json())
     .then((data) => {
         const n = Math.floor(Math.random() * 20);
-       
         setAsteroidID('')
         getAsteroid(null,data["near_earth_objects"][n]["id"])
     })
@@ -38,45 +37,35 @@ const HomeScreen = () => {
     getAsteroid(AsteroidID,null)
   };
 
-    
   return (
     <View style={styles.container}>
-
-
       <StatusBar 
         animated={true}
         backgroundColor="#dcdcdc"
-        />
+      />
       <TextInput 
-        
         mode="outlined"
         label="Enter Asteroid "
         style={styles.input}
         onChangeText={(text) => setAsteroidID(text) } />
 
-        
-        <View style={[{ width: "47%", margin: 15 }]}>
-            <Button
-                
-                title="Submit"
-                color='#000080'
-                disabled={AsteroidID===''}
-                onPress={nextpage}
+      <View style={[{ width: "47%", margin: 15 }]}>
+        <Button
+          title="Submit"
+          color='#000080'
+          disabled={AsteroidID===''}
+          onPress={nextpage}
+        />
+      </View>
+      <Divider/>
+      <View style={[{ width: "47%", margin: 15 }]}>
+        <Button
+          onPress={randomAsteroid}
+          title="Random Asteroid"
+          color='#000080'
         />
         </View>
-        <Divider/>
-
-        <View style={[{ width: "47%", margin: 15 }]}>
-            <Button
-                onPress={randomAsteroid}
-                title="Random Asteroid"
-                color='#000080'
-        />
-        </View>
-       
-        
     </View>
-   
   );
 };
 export default HomeScreen;
@@ -89,7 +78,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   input: {
-    
     borderColor: '#777',
     backgroundColor: '#dcdcdc',
     margin: 20,
@@ -99,9 +87,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: "500",
-    
-    
-
   }
 });
 
