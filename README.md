@@ -1,7 +1,7 @@
 # cognitivenasaapp
 Developed nasa app using react native, and typescript, javascript,
 Client used - Expo cli,
-Discription- its a app which provide the details abaout the asteroid by entering its id or u can get the details of the random asteroid
+Discription- its a app which provide the details abaout the asteroid by entering its id or u can get the details of the random asteroid,
 To run the app- npm start 
 
 ![Screen1](https://user-images.githubusercontent.com/94665621/193520211-2dca0901-4667-4cec-b5ee-6940f1a8c26a.jpeg)
